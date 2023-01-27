@@ -1,0 +1,46 @@
+﻿@using MVCOnlineTicaret.Models.Classes
+@model List<Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="card-body">
+    <table id="datatablesSimple">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Category Name</th>
+                <th>Update</th>
+                <th>Delete</th>
+
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>Category Name</th>
+                <th>Delete</th>
+                <th>Update</th>
+
+            </tr>
+        </tfoot>
+        <tbody>
+        @{
+            int i = 1;
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@i</td>
+                <td>@item.CategoryName</td>
+                <td><a href="/Category/Delete/@item.CategoryId" class="btn btn-danger">Delete</a></td>
+                <td><a href="/Category/GetCategory/@item.CategoryId" class="btn btn-primary">Update</a></td>
+            </tr>
+            i++;
+        }
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="/Category/Add/">Add New Category</a>
+</div>

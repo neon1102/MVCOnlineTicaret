@@ -1,0 +1,41 @@
+﻿@using MVCOnlineTicaret.Models.Classes
+@model List<Department>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="card-body">
+    <table id="datatablesSimple" class="table-responsive">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Category Name</th>
+            <th>Yenile</th>
+            <th>Sil</th>
+            <th>Detallar</th>
+
+        </tr>
+        </thead>
+    
+        <tbody>
+        @{
+            int i = 1;
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@i</td>
+                <td>@item.DepartmanName</td>
+                <td style="text-align:center;"><a href="/Department/Delete/@item.DepartmanId" class="btn btn-danger btn-sm">Sil</a></td>
+                <td style="text-align:center;"><a href="/Department/GetDepartment/@item.DepartmanId" class="btn btn-primary btn-sm">Yenile</a></td>
+                <td style="text-align:center;"><a href="/Department/DepartmentDetails/@item.DepartmanId" class="btn btn-primary btn-sm">Detallar</a></td>
+            </tr>
+            i++;
+        }
+        </tbody>
+    </table>
+
+    <a class="btn btn-info" href="/Department/Add/">Elave Et</a>
+</div>
+

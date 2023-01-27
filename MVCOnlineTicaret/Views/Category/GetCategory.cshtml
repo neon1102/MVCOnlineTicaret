@@ -1,0 +1,21 @@
+﻿@model MVCOnlineTicaret.Models.Classes.Category
+@{
+    ViewBag.Title = "GetCategory";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Category Update</h2>
+<br />
+
+@using (Html.BeginForm("Update", "Category", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x=>x.CategoryId)
+        @Html.LabelFor(x => x.CategoryName)
+        @Html.TextBoxFor(x => x.CategoryName, new {@class = "form-control"})
+    </div>
+    <br/>
+    <button class="btn btn-warning">Update</button>
+}
+
